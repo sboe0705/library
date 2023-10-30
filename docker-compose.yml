@@ -1,0 +1,85 @@
+version: '2'
+
+services:
+# ---------- users ----------
+  users-app:
+    image: 'users:latest'
+    container_name: users-app
+    depends_on:
+      users-db:
+        condition: service_healthy
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://users-db:5432/users-db
+      - SPRING_DATASOURCE_USERNAME=users-db-user
+      - SPRING_DATASOURCE_PASSWORD=users-db-password
+    ports:
+      - 8081:8080
+  users-db:
+    image: 'postgres:16-alpine'
+    container_name: users-db
+    environment:
+      - POSTGRES_DB=users-db
+      - POSTGRES_USER=users-db-user
+      - POSTGRES_PASSWORD=users-db-password
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d users-db -U users-db-user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - 5433:5432
+# ---------- books ----------
+  books-app:
+    image: 'books:latest'
+    container_name: books-app
+    depends_on:
+      books-db:
+        condition: service_healthy
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://books-db:5432/books-db
+      - SPRING_DATASOURCE_USERNAME=books-db-user
+      - SPRING_DATASOURCE_PASSWORD=books-db-password
+    ports:
+      - 8082:8080
+  books-db:
+    image: 'postgres:16-alpine'
+    container_name: books-db
+    environment:
+      - POSTGRES_DB=books-db
+      - POSTGRES_USER=books-db-user
+      - POSTGRES_PASSWORD=books-db-password
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d books-db -U books-db-user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - 5434:5432
+# ---------- rentals ----------
+  rentals-app:
+    image: 'rentals:latest'
+    container_name: rentals-app
+    depends_on:
+      rentals-db:
+        condition: service_healthy
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://rentals-db:5432/rentals-db
+      - SPRING_DATASOURCE_USERNAME=rentals-db-user
+      - SPRING_DATASOURCE_PASSWORD=rentals-db-password
+    ports:
+      - 8083:8080
+  rentals-db:
+    image: 'postgres:16-alpine'
+    container_name: rentals-db
+    environment:
+      - POSTGRES_DB=rentals-db
+      - POSTGRES_USER=rentals-db-user
+      - POSTGRES_PASSWORD=rentals-db-password
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d rentals-db -U rentals-db-user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - 5435:5432
+# ---------- library ----------
