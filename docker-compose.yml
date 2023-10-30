@@ -11,6 +11,9 @@ services:
     environment:
       - LIBRARY_BOOKSRESTCLIENT_HOST=books-app
       - LIBRARY_BOOKSRESTCLIENT_PORT=8080
+      - LIBRARY_RESTCLIENTS_0_NAME=users
+      - LIBRARY_RESTCLIENTS_0_HOST=users-app
+      - LIBRARY_RESTCLIENTS_0_PORT=8080
     ports:
       - 8080:8080
 # ---------- users ----------

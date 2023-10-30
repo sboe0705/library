@@ -5,3 +5,7 @@ library:
   books-rest-client:
     host: localhost
     port: 8082
+  rest-clients:
+    - name: users
+      host: localhost
+      port: 8081
