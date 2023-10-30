@@ -1,0 +1,7 @@
+server:
+  error:
+    include-message: always
+library:
+  books-rest-client:
+    host: localhost
+    port: 8082

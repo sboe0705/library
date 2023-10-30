@@ -1,4 +1,4 @@
-package libraryde.sboe0705.library;
+package de.sboe0705.library;
 
 
 import org.springframework.boot.SpringApplication;
