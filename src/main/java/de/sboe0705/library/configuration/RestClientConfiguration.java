@@ -1,7 +1,6 @@
 package de.sboe0705.library.configuration;
 
 import java.net.URI;
-import java.util.Optional;
 
 import org.springframework.validation.annotation.Validated;
 
@@ -54,7 +53,7 @@ public class RestClientConfiguration {
 	}
 
 	public URI getBaseURI() {
-		return URI.create(protocol + "://" + host + ":" + port);
+		return URI.create(getProtocol() + "://" + getHost() + ":" + getPort());
 	}
 
 }

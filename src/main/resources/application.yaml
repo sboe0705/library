@@ -9,3 +9,6 @@ library:
     - name: users
       host: localhost
       port: 8081
+    - name: rentals
+      host: localhost
+      port: 8083
