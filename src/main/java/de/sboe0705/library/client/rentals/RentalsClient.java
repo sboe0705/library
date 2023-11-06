@@ -8,7 +8,7 @@ import de.sboe0705.library.client.rentals.gen.model.Rent;
 
 public interface RentalsClient {
 
-	public static final String CLIENT_NAME = "rentals";
+	String CLIENT_NAME = "rentals";
 
 	List<Rent> getRents(boolean onlyRent);
 

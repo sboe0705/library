@@ -24,7 +24,7 @@ public class UsersClientImpl implements UsersClient {
 	private RestTemplate restTemplate;
 
 	public UsersClientImpl(LibraryConfiguration libraryConfiguration, RestTemplateBuilder restTemplateBuilder) {
-		restClientConfiguration = libraryConfiguration.getRestClientByName("users");
+		restClientConfiguration = libraryConfiguration.getRestClientByName(UsersClient.CLIENT_NAME);
 		restTemplate = restTemplateBuilder.build();
 	}
 
