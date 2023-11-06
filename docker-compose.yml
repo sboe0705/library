@@ -14,6 +14,9 @@ services:
       - LIBRARY_RESTCLIENTS_0_NAME=users
       - LIBRARY_RESTCLIENTS_0_HOST=users-app
       - LIBRARY_RESTCLIENTS_0_PORT=8080
+      - LIBRARY_RESTCLIENTS_1_NAME=rentals
+      - LIBRARY_RESTCLIENTS_1_HOST=rentals-app
+      - LIBRARY_RESTCLIENTS_1_PORT=8080
     ports:
       - 8080:8080
 # ---------- users ----------
