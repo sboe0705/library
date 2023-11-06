@@ -28,6 +28,7 @@ jobs:
       uses: dawidd6/action-download-artifact@v2
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        repo: rentals
         workflow: maven.yml
         name: openapi-definition
     - name: Build with Maven
