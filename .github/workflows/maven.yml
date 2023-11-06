@@ -16,6 +16,9 @@ jobs:
     permissions:
       packages: write
 
+    env:
+      RENTALS_VERSION: 0.0.1-SNAPSHOT
+
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
@@ -31,6 +34,8 @@ jobs:
         repo: sboe0705/rentals
         workflow: maven.yml
         name: openapi-definition
+    - name: Install Rentals Openapi Definition into local Maven repository
+      run: mvn install:install-file -Dfile=rentals-openapi.json -DgroupId=de.sboe0705 -DartifactId=rentals-rest -Dclassifier=openapi -Dpackaging=json -Dversion=$RENTALS_VERSION
     - name: Build with Maven
       run: mvn -B package
     - name: Publish Image
