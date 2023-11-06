@@ -24,7 +24,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import de.sboe0705.library.client.users.UsersClient;
 import de.sboe0705.library.configuration.LibraryConfiguration;
 import de.sboe0705.library.configuration.RestClientConfiguration;
-import de.sboe0705.library.model.Book;
 import de.sboe0705.library.model.User;
 
 @RestClientTest(UsersClient.class)
@@ -113,19 +112,19 @@ public class UsersClientImplTest {
 		mockRestServiceServer.expect(MockRestRequestMatchers.requestTo(Matchers.containsString("/user/")))
 				.andRespond(MockRestResponseCreators.withSuccess(jsonString, MediaType.APPLICATION_JSON));
 	}
-	
+
 	@Test
 	void testGetBookNotExisting() throws Exception {
 		// given
 		mockRestServiceServer.expect(MockRestRequestMatchers.requestTo(Matchers.containsString("/user/")))
-		.andRespond(MockRestResponseCreators.withStatus(HttpStatus.NOT_FOUND));
-		
+				.andRespond(MockRestResponseCreators.withStatus(HttpStatus.NOT_FOUND));
+
 		// when
 		User user = underTest.getUser("user1");
-		
+
 		// then
 		Assertions.assertThat(user) //
-		.isNull();
+				.isNull();
 	}
 
 }

@@ -67,7 +67,7 @@ public class RentalsClientImplTest {
 		testGetRentsWithParameter(false);
 	}
 
-	private void testGetRentsWithParameter(boolean onlyRent) throws JsonProcessingException {
+	private void testGetRentsWithParameter(boolean onlyRent) throws Exception {
 		int rentsCount = 3;
 
 		// given
@@ -169,7 +169,7 @@ public class RentalsClientImplTest {
 		// then
 		mockRestServiceServer.verify();
 	}
-	
+
 	@Test
 	void testReturnItem() throws Exception {
 		// given
@@ -183,6 +183,5 @@ public class RentalsClientImplTest {
 		// then
 		mockRestServiceServer.verify();
 	}
-
 
 }

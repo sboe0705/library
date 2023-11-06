@@ -4,16 +4,16 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class Book {
-	
+
 	@NotNull
 	private Long id;
-	
+
 	@NotBlank
 	private String title;
-	
+
 	@NotBlank
 	private String author;
-	
+
 	public Long getId() {
 		return id;
 	}

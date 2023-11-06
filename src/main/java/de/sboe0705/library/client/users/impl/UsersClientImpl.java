@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
+import de.sboe0705.library.client.ClientErrorException;
 import de.sboe0705.library.client.users.UsersClient;
 import de.sboe0705.library.configuration.LibraryConfiguration;
 import de.sboe0705.library.configuration.RestClientConfiguration;
@@ -29,7 +30,11 @@ public class UsersClientImpl implements UsersClient {
 	}
 
 	@Override
-	public List<User> getUsers() {
+	public List<User> getUsers() throws ClientErrorException {
+		try {
+		} catch (HttpClientErrorException e) {
+			throw new ClientErrorException(CLIENT_NAME, e);
+		}
 		URI usersURI = URI.create("/users");
 		ResponseEntity<List<User>> response = restTemplate.exchange(
 				restClientConfiguration.getBaseURI().resolve(usersURI), HttpMethod.GET, null,
@@ -39,14 +44,18 @@ public class UsersClientImpl implements UsersClient {
 	}
 
 	@Override
-	public User getUser(String id) {
-		URI userURI = URI.create("/user/" + id);
+	public User getUser(String id) throws ClientErrorException {
 		try {
-			ResponseEntity<User> response = restTemplate.exchange(restClientConfiguration.getBaseURI().resolve(userURI),
-					HttpMethod.GET, null, User.class);
-			return response.getBody();
-		} catch (HttpClientErrorException.NotFound notFound) {
-			return null;
+			URI userURI = URI.create("/user/" + id);
+			try {
+				ResponseEntity<User> response = restTemplate.exchange(
+						restClientConfiguration.getBaseURI().resolve(userURI), HttpMethod.GET, null, User.class);
+				return response.getBody();
+			} catch (HttpClientErrorException.NotFound notFound) {
+				return null;
+			}
+		} catch (HttpClientErrorException e) {
+			throw new ClientErrorException(CLIENT_NAME, e);
 		}
 	}
 

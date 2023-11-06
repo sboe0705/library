@@ -25,7 +25,8 @@ public class LibraryConfiguration {
 		return restClients.stream() //
 				.filter(restClient -> name.equalsIgnoreCase(restClient.getName())) //
 				.findFirst() //
-				.orElseThrow(() -> new IllegalArgumentException("No element with name '" + name + "' configured in 'library.rest-clients'"));
+				.orElseThrow(() -> new IllegalArgumentException(
+						"No element with name '" + name + "' configured in 'library.rest-clients'"));
 	}
 
 }
