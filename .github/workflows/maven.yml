@@ -35,7 +35,7 @@ jobs:
         workflow: maven.yml
         name: openapi-definition
     - name: Install Rentals Openapi Definition into local Maven repository
-      run: mvn install:install-file -Dfile=rentals-openapi.json -DgroupId=de.sboe0705 -DartifactId=rentals-rest -Dclassifier=openapi -Dpackaging=json -Dversion=$RENTALS_VERSION
+      run: mvn -B install:install-file -Dfile=rentals-openapi.json -DgroupId=de.sboe0705 -DartifactId=rentals-rest -Dclassifier=openapi -Dpackaging=json -Dversion=$RENTALS_VERSION
     - name: Build with Maven
       run: mvn -B package
     - name: Publish Image
