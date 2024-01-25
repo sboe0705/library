@@ -1,8 +1,45 @@
-# Die Bibliothek 
+# Die Bibliothek
 
-## Datenbank - Anbindung
+## Architektur
+
+### Users Application
+
+Benutzer anzeigen, anlegen und löschen
+
+## Spring Boot
+
+### Projekt-Setup
+
+**TODO**
+
+### Automatisierte Tests
+
+### Application Configuration
+
+https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-external-config.html
+
+
+## Persistierung
 
 Hier werden Techniken und Methoden beschrieben, die mit der Persistierung von Daten zusammenhängen, z.B. das Mapping auf Java-Klassen, Datenbank-Update und die Modellierung von Relationen zwischen Tabellen.
+
+### Datenbank-Anbindung
+
+**TODO**
+
+application-generate-ddl.yaml
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.files.profile-specific
+
+H2 Console
+
+https://docs.spring.io/spring-boot/docs/3.1.x/reference/html/data.html#data.sql.h2-web-console
+
+H2-Console: https://docs.spring.io/spring-boot/docs/current/reference/html/data.html#data.sql.h2-web-console
+
+SCRIPT NODATA
+
+https://stackoverflow.com/questions/5469881/any-easy-way-to-generate-a-build-script-from-an-h2-database
 
 ### Objekt-Relationales Mapping (ORM)
 
@@ -32,59 +69,36 @@ Die CrudRepositories können um eigene Methoden und Abfragen auf unterschiedlich
 
 Weiterführende Dokumentation:
 
+- [Spring Boot / Spring Data JPA Repositories](https://docs.spring.io/spring-boot/docs/current/reference/html/data.html#data.sql.jpa-and-spring-data.repositories)
 - [Spring Data Commons / ... / Defining Query Methods](https://docs.spring.io/spring-data/rest/reference/data-commons/repositories/query-methods-details.html)
 - [Baeldung / CrudRepository, JpaRepository and PagingAndSortingRepository in Spring Data](https://www.baeldung.com/spring-data-repositories)
 - [Baeldung / New CRUD Repository Interfaces in Spring Data 3](https://www.baeldung.com/spring-data-3-crud-repository-interfaces)
 
----
+### Datenbank-Migration mit FlyWay
 
-# Users Application
+**TODO**
 
-## Applikation
+Weiterführende Dokumentation:
 
-Benutzer anzeigen, anlegen und löschen
+- [Spring Boot / Execute Flyway Database Migrations on Startup](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto.data-initialization.migration-tool.flyway)
 
-## Dankenbank-Anbindung
+### Automatisierte Tests mit Datenbank-Zugriffen
 
-Spring Data: https://docs.spring.io/spring-data/jpa/docs/current/reference/html/
+**TODO**
 
+## REST-Services
 
-### Datenbank-Schema
-
-application-generate-ddl.yaml
-
-https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.files.profile-specific
-
-H2 Console
-
-https://docs.spring.io/spring-boot/docs/3.1.x/reference/html/data.html#data.sql.h2-web-console
-
-H2-Console: https://docs.spring.io/spring-boot/docs/current/reference/html/data.html#data.sql.h2-web-console
-
-SCRIPT NODATA
-
-https://stackoverflow.com/questions/5469881/any-easy-way-to-generate-a-build-script-from-an-h2-database
-
-## Migration mit Flyway
-
-https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto.data-initialization.migration-tool.flyway
-
-### Crud-Repositories
-
-https://docs.spring.io/spring-boot/docs/current/reference/html/data.html#data.sql.jpa-and-spring-data.repositories
-
-### Tests
-
-## REST-Service
+**TODO**
 
 ### RestController
 
-### Exception-Handling
+**TODO**
 
-https://docs.spring.io/spring-boot/docs/current/reference/html/web.html#web.servlet.spring-mvc.error-handling
+### Generierte Web-Schnittstellen
 
+**TODO**
 
-## OpenAPI
+**OpenAPI**
 
 https://www.baeldung.com/spring-rest-openapi-documentation
 
@@ -94,11 +108,7 @@ http://localhost:8080/v3/api-docs
 
 http://localhost:8080/swagger-ui/index.html
 
-## Application Configuration
-
-https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-external-config.html
-
-## Swagger UI Code-Gen
+**Swagger UI Code-Gen**
 
 https://www.baeldung.com/spring-boot-rest-client-swagger-codegen
 
@@ -108,3 +118,13 @@ http://localhost:8083/v3/api-docs.yaml
 
 https://openapi-generator.tech/docs/swagger-codegen-migration/
 https://openapi-generator.tech/docs/generators/java/
+
+### Exception-Handling
+
+**TODO**
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/web.html#web.servlet.spring-mvc.error-handling
+
+### Automatisierte Tests des Web-Schnittstellen
+
+**TODO**
