@@ -14,13 +14,75 @@ Ein einfaches Beispiel ist in der Klasse **_User_** umgesetzt, siehe [User.java]
 | ---        | ---                                                                                                                                 |
 | @Entity    | Kennzeichnet eine Java-Klasse als Datenbank-Entität                                                                                 |
 | @Table     | Enthält zusätzliche Angaben zur Tabelle für diese Entität z.B. kann man den Tabellennamen explizit definieren (``name = "_user"``). |
-| @Id        | Definiert ein Feld der Java-Klasse als ID.                                                                                          |
+| @Id        | Definiert ein Feld der Java-Klasse als Primärschlüssel.                                                                                          |
 | @Column    | Enthält zusätzliche Angaben zur Spalte für dieses Feld z.B. kann ein Feld als Pflichfeld (``nullable = false``) definiert werden.   |
 
 Weiterführende Informationen findet ihr hier:
 
 - [Spring Data JPA / Getting Started](https://docs.spring.io/spring-data/jpa/reference/jpa/getting-started.html)
 - [Baeldung / Defining JPA Entities](https://www.baeldung.com/jpa-entities)
+
+### CrudRepositories
+
+Über die sogenannten CRUD-Repositories (**C**reate, **R**ead, **U**pdate, **D**elete) können Daten über Java-Objekte aus der Datenbank gelesen und in die Datenbank geschrieben werden. Die von Spring angebotenen Interfaces bieten bereits eine Menge an häufig benötigten Methoden, die out-of-the-box direkt verwendet werden können.
+
+Dazu muss lediglich ein Interface erstellt werden, welches von ``CrudRepository`` erbt und per _Generics_ der entsprechenden Entität samt ihres Primärschlüssel-Typs zugewiesen wird, siehe [UserRepository.java](https://github.com/sboe0705/users/blob/f1f40573166cdd0c4a60a7c7daacec7a46ec61d8/src/main/java/de/sboe0705/users/data/UserRepository.java). 
+
+Die CrudRepositories können um eigene Methoden und Abfragen auf unterschiedliche Weisen erweitert werden: Zum Einen können sprechende Interface-Methoden hinzugefügt werden, die entsprechenden SQL-Statements entsprechen. Zum Anderen können Methoden hinzugefügt und mit entsprechenden Queries annotiiert werden, die die Datenbank-Abfragen entweder über HSQL oder gar reines SQL durchführen. Eine Beispiel-Implementierung ist hier zu finden: [RentRepository.java](https://github.com/sboe0705/rentals/blob/32e19bc0b3d30d8be6bb996c42790259e607011f/rentals-core/src/main/java/de/sboe0705/rentals/data/RentRepository.java#L17).
+
+Weiterführende Dokumentation:
+
+- [Spring Data Commons / ... / Defining Query Methods](https://docs.spring.io/spring-data/rest/reference/data-commons/repositories/query-methods-details.html)
+- [Baeldung / CrudRepository, JpaRepository and PagingAndSortingRepository in Spring Data](https://www.baeldung.com/spring-data-repositories)
+- [Baeldung / New CRUD Repository Interfaces in Spring Data 3](https://www.baeldung.com/spring-data-3-crud-repository-interfaces)
+
+---
+
+# Users Application
+
+## Applikation
+
+Benutzer anzeigen, anlegen und löschen
+
+## Dankenbank-Anbindung
+
+Spring Data: https://docs.spring.io/spring-data/jpa/docs/current/reference/html/
+
+
+### Datenbank-Schema
+
+application-generate-ddl.yaml
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.files.profile-specific
+
+H2 Console
+
+https://docs.spring.io/spring-boot/docs/3.1.x/reference/html/data.html#data.sql.h2-web-console
+
+H2-Console: https://docs.spring.io/spring-boot/docs/current/reference/html/data.html#data.sql.h2-web-console
+
+SCRIPT NODATA
+
+https://stackoverflow.com/questions/5469881/any-easy-way-to-generate-a-build-script-from-an-h2-database
+
+## Migration mit Flyway
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto.data-initialization.migration-tool.flyway
+
+### Crud-Repositories
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/data.html#data.sql.jpa-and-spring-data.repositories
+
+### Tests
+
+## REST-Service
+
+### RestController
+
+### Exception-Handling
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/web.html#web.servlet.spring-mvc.error-handling
+
 
 ## OpenAPI
 
