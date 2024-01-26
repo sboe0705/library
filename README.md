@@ -10,7 +10,20 @@ Benutzer anzeigen, anlegen und löschen
 
 ### Projekt-Setup
 
-**TODO**
+Ein Spring Boot - Projekt kann leicht über den [Spring Initializr](https://start.spring.io/) zusammengestellt und vorkonfiguriert heruntergeladen werden. Nach der Wahl der Programmiersprache, des Build-Tools und der Namenskonfiguration können noch benötigte Spring Dependencies ausgewählt werden. Im Folgenden eine kleine Auswahl der gängisten:
+
+| Dependency           | Beschreibung                                                                                                                                   |
+| ---                  | ---                                                                                                                                            |
+| Spring Web           | Build web, including RESTful, applications using Spring MVC. Uses Apache Tomcat as the default embedded container.                             |
+| Spring Security      | Highly customizable authentication and access-control framework for Spring applications.                                                       |
+| Spring Data JPA      | Persist data in SQL stores with Java Persistence API using Spring Data and Hibernate.                                                          |
+| PostgreSQL Driver    | A JDBC and R2DBC driver that allows Java programs to connect to a PostgreSQL database using standard, database independent Java code.          |
+| Flyway Migration     | Version control for your database so you can migrate from any version (incl. an empty database) to the latest version of the schema.           |
+| H2 Database          | Provides a fast in-memory database that supports JDBC API and R2DBC access, with a small (2mb) footprint.                                      |
+| Spring Boot Actuator | Supports built in (or custom) endpoints that let you monitor and manage your application - such as application health, metrics, sessions, etc. |
+| Spring Boot DevTools | Provides fast application restarts, LiveReload, and configurations for enhanced development experience.                                        |
+
+Das konfigurierte Setup kann nach der Auswahl als ZIP heruntergeladen, entpackt und direkt gebaut werden. Bei einigen Dependencies gibt es schon Hello-World - Implementierungen, die den Einstieg noch weiter erleichern.
 
 ### Automatisierte Tests
 
@@ -99,6 +112,8 @@ Weiterführende Dokumentation:
 **TODO**
 
 **OpenAPI**
+
+https://springdoc.org/
 
 https://www.baeldung.com/spring-rest-openapi-documentation
 
