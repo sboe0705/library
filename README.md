@@ -8,6 +8,13 @@ Benutzer anzeigen, anlegen und löschen
 
 ## Spring Boot
 
+**TODO**
+
+Quelle an hervorragenden Tutorials:
+
+- [Getting Started Guides](https://spring.io/guides/)
+- [Baeldung / Spring Boot](https://www.baeldung.com/spring-boot)
+
 ### Projekt-Setup
 
 Ein Spring Boot - Projekt kann leicht über den [Spring Initializr](https://start.spring.io/) zusammengestellt und vorkonfiguriert heruntergeladen werden. Nach der Wahl der Programmiersprache, des Build-Tools und der Namenskonfiguration können noch benötigte Spring Dependencies ausgewählt werden. Im Folgenden eine kleine Auswahl der gängisten:
@@ -25,16 +32,38 @@ Ein Spring Boot - Projekt kann leicht über den [Spring Initializr](https://star
 
 Das konfigurierte Setup kann nach der Auswahl als ZIP heruntergeladen, entpackt und direkt gebaut werden. Bei einigen Dependencies gibt es schon Hello-World - Implementierungen, die den Einstieg noch weiter erleichern.
 
+### Erste Schritte
+
+Die Einstiegsklasse in einer Spring Boot - Applikation ist in der Regel eine *Application.java, z.B. [UsersApplication.java](https://github.com/sboe0705/users/blob/01d8d0e7ce28ed4c1f5d025523b692a5c28334ba/src/main/java/de/sboe0705/users/UsersApplication.java). Hier steht die ``main`` - Methode, die beim Starten der JAR-Datei geladen wird und die den gesamten Spring-Kontext initialisiert. Neben der benötigten ``@SpringBootApplication`` - Annotation können später, je nach Bedarf, noch weitere Annotationen folgen, z.B. für das Aktivieren von Scheduler- oder Security-Modulen.
+
+Hervorragende Tutorials zum Einstieg:
+
+- [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
+- [Spring Boot Tutorial – Bootstrap a Simple Application](https://www.baeldung.com/spring-boot-start) (komplexer mit persistent, REST-Service und Security)
+
+### Beans und Services
+
+**TODO**
+
 ### Automatisierte Tests
+
+**TODO**
 
 ### Application Configuration
 
+**TODO**
+
 https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-external-config.html
 
+## REST-Services
+
+**TODO**
+
+Hervorragende Tutorials zum Einstieg:
+
+- (Building a RESTful Web Service)[https://spring.io/guides/gs/rest-service/]
 
 ## Persistierung
-
-Hier werden Techniken und Methoden beschrieben, die mit der Persistierung von Daten zusammenhängen, z.B. das Mapping auf Java-Klassen, Datenbank-Update und die Modellierung von Relationen zwischen Tabellen.
 
 ### Datenbank-Anbindung
 
