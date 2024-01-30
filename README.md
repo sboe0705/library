@@ -1,6 +1,14 @@
 # Die Bibliothek
 
+"Die Bibliothek" ist eine kleine Beispielanwendung, in der die wichtigsten Spring Boot - Features umgesetzt sind und hier in dieser Dokumentation kurz vorgestellt werden. Es sind lediglich kurze Beschreibungen, die mit weiterführenden Links z.B. zur Spring Dokumentation oder etablierte Tutorial-Seiten ergänzt werden. Somit kann diese _README.md_ als schnell einsehbare Quelle für viele Best-Practices dienen.
+
 ## Architektur
+
+Diese Anwendung ist in einer Micro-Service - Architektur designed. Sie besteht aus kleinen, für einen bestimmten Zweck entwickelte Anwendungen, die miteinander kommunizieren und zusammen die Use Cases einer Bibliothek anbieten.
+
+![Architektur Übersicht](/library-architecture.png)
+
+[Excalidraw](https://excalidraw.com/#json=vyZH_m7GpCi4M753MG2ut,y-MdwhP28leTeYnokqhe9g)
 
 ### Users Application
 
