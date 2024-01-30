@@ -13,6 +13,28 @@ Quelle: [Excalidraw](https://excalidraw.com/#json=vyZH_m7GpCi4M753MG2ut,y-MdwhP2
 
 Benutzer anzeigen, anlegen und löschen
 
+**TODO**
+
+### Books Application
+
+**TODO**
+
+### Rentals Application
+
+**TODO**
+
+### Library Application
+
+**TODO**
+
+### GUI Vaadin
+
+**TODO**
+
+### GUI Vue.js
+
+**TODO**
+
 ## Spring Boot
 
 **TODO**
@@ -48,9 +70,23 @@ Hervorragende Tutorials zum Einstieg:
 - [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
 - [Spring Boot Tutorial – Bootstrap a Simple Application](https://www.baeldung.com/spring-boot-start) (komplexer mit persistent, REST-Service und Security)
 
-### Beans und Services
+### Spring Beans
 
-**TODO**
+In Spring Boot bzw. Spring Anwendungen können interne Implementierungen in Services zusammengefasst und gekapselt werden. Diese sogenannte Beans werden zur Laufzeit vom Spring Framework zusammengestöpselt (_Dependency Injection_), sodass alle Abhängigkeiten bedient sind. Es gibt verschiedene Ausprägungen von Beans, darunter:
+
+_@Repositories_ sind Beans mit einer Datenbank-Anbindung. In den Beispiel-Projekten sind diese jedoch lediglich als Interfaces definiert, z.B. [RentRepository](https://github.com/sboe0705/rentals/blob/32e19bc0b3d30d8be6bb996c42790259e607011f/rentals-core/src/main/java/de/sboe0705/rentals/data/RentRepository.java). Die Implementierungen werden in diesen Fällen zur Laufzeit von Spring generiert, könnten aber auch programmatisch bereitgestellt werden.
+
+_@Service_ Beans sind "gewöhnliche" Java-Klasse, die irgendwelche Geschäftslogiken enthalten, z.B. [RentalServiceImpl](https://github.com/sboe0705/rentals/blob/32e19bc0b3d30d8be6bb996c42790259e607011f/rentals-core/src/main/java/de/sboe0705/rentals/service/impl/RentalServiceImpl.java). Sie implementieren ein Interface (z.B. [RentalService](https://github.com/sboe0705/rentals/blob/32e19bc0b3d30d8be6bb996c42790259e607011f/rentals-core/src/main/java/de/sboe0705/rentals/service/RentalService.java)), über dass andere Beans auf sie zugreifen können, z.B. [RentalsController#37](https://github.com/sboe0705/rentals/blob/32e19bc0b3d30d8be6bb996c42790259e607011f/rentals-rest/src/main/java/de/sboe0705/rentals/rest/RentalsController.java#L37).
+
+_@RestController_ sind Beans, deren öffentliche Methoden als REST-Services nach außen hin freigegeben sind, z.B. [RentalsController](https://github.com/sboe0705/rentals/blob/32e19bc0b3d30d8be6bb996c42790259e607011f/rentals-rest/src/main/java/de/sboe0705/rentals/rest/RentalsController.java). Diese können über entsprechende Annotationen konfiguriert werden. Das Spring Framework übernimmt dabei die Serialisierung und Deserialisierung der Parameter und Rückgabewerte.
+
+Weiterführende Links:
+
+- [Spring / Classpath Scanning and Managed Components](https://docs.spring.io/spring-framework/reference/core/beans/classpath-scanning.html)
+- [Baeldung / Spring Bean Annotations](https://www.baeldung.com/spring-bean-annotations)
+- [Baeldung / @Component vs @Repository and @Service in Spring](https://www.baeldung.com/spring-component-repository-service)
+
+Des Weiteren können für alle Beans entsprechende Geltungsbereiche (_Scopes_) definiert werden, die bestimmen in welchem Kontext eine Bean existiert, z.B. als Singleton oder einmal für jeden Request. Siehe dazu die Dokumentation unter [Spring / Bean Scopes](https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html).
 
 ### Automatisierte Tests
 
