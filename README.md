@@ -7,8 +7,7 @@
 Diese Anwendung ist in einer Micro-Service - Architektur designed. Sie besteht aus kleinen, für einen bestimmten Zweck entwickelte Anwendungen, die miteinander kommunizieren und zusammen die Use Cases einer Bibliothek anbieten.
 
 ![Architektur Übersicht](/library-architecture.png)
-
-[Excalidraw](https://excalidraw.com/#json=vyZH_m7GpCi4M753MG2ut,y-MdwhP28leTeYnokqhe9g)
+Quelle: [Excalidraw](https://excalidraw.com/#json=vyZH_m7GpCi4M753MG2ut,y-MdwhP28leTeYnokqhe9g)
 
 ### Users Application
 
