@@ -105,27 +105,13 @@ Weiterführende Dokumentation:
 
 **TODO**
 
-#### Test mit Datenbank-Anbindung
-
-Im Test [BooksRepositoryTest](https://github.com/sboe0705/books/blob/main/src/test/java/de/sboe0705/books/data/BooksRepositoryTest.java) wird das _BooksRepository_ getestet. Da die _CrudRepository_ von Spring generiert werden, müssen die Standard-Methoden eigentlich nicht getestet werden. Allerdings können bei der Definition von eigenen Methoden Fehler passieren, die diese Tests dann wieder sinnvoll machen. Auch die Funktionsfähigkeit von Relationen kann sogar Tests des Standard-Methoden rechtfertigen (z.B. beim kaskadierenden Löschen).
-
-Tests mit Datenbank-Anbindungen sind mit _@DataJpaTest_ zu annotieren. Dadurch werden die Datenbank-Konfiguration aus den Application-Properties genommen. Über die Annotation _@Sql_ können SQL-Skripte mit Testdaten vor der Ausführung des Tests eingespielt werden, siehe z.B. [BooksRepositoryTest#33](https://github.com/sboe0705/books/blob/ac7f61dff70eaf679f935d5513dc15efb6158ad2/src/test/java/de/sboe0705/books/data/BooksRepositoryTest.java#L33).
-
-Beim optionalen Injizieren eines RestControllers (siehe [BooksRepositoryTest#22-30](https://github.com/sboe0705/books/blob/main/src/test/java/de/sboe0705/books/data/BooksRepositoryTest.java#L22-L30)) sieht man auch, dass bei diesen speziellen Datenbank-Tests auch nur die für den Tests gegen die Datenbenk verantwortlichen Repository-Beans instanziiert werden.
-
 ### Application Configuration
 
 **TODO**
 
+https://github.com/sboe0705/library/blob/main/src/test/java/de/sboe0705/library/configuration/LibraryConfigurationTest.java
+
 https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-external-config.html
-
-## REST-Services
-
-**TODO**
-
-Hervorragende Tutorials zum Einstieg:
-
-- (Building a RESTful Web Service)[https://spring.io/guides/gs/rest-service/]
 
 ## Persistierung
 
@@ -188,9 +174,18 @@ Weiterführende Dokumentation:
 
 - [Spring Boot / Execute Flyway Database Migrations on Startup](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto.data-initialization.migration-tool.flyway)
 
-### Automatisierte Tests mit Datenbank-Zugriffen
+### Automatisierte Tests mit Datenbank-Anbindung
 
-**TODO**
+Im Test [BooksRepositoryTest](https://github.com/sboe0705/books/blob/main/src/test/java/de/sboe0705/books/data/BooksRepositoryTest.java) wird das _BooksRepository_ getestet. Da die _CrudRepository_ von Spring generiert werden, müssen die Standard-Methoden eigentlich nicht getestet werden. Allerdings können bei der Definition von eigenen Methoden Fehler passieren, die diese Tests dann wieder sinnvoll machen. Auch die Funktionsfähigkeit von Relationen kann sogar Tests des Standard-Methoden rechtfertigen (z.B. beim kaskadierenden Löschen).
+
+Tests mit Datenbank-Anbindungen sind mit _@DataJpaTest_ zu annotieren. Dadurch werden die Datenbank-Konfiguration aus den Application-Properties genommen. Über die Annotation _@Sql_ können SQL-Skripte mit Testdaten vor der Ausführung des Tests eingespielt werden, siehe z.B. [BooksRepositoryTest#33](https://github.com/sboe0705/books/blob/ac7f61dff70eaf679f935d5513dc15efb6158ad2/src/test/java/de/sboe0705/books/data/BooksRepositoryTest.java#L33).
+
+Beim optionalen Injizieren eines RestControllers (siehe [BooksRepositoryTest#22-30](https://github.com/sboe0705/books/blob/main/src/test/java/de/sboe0705/books/data/BooksRepositoryTest.java#L22-L30)) sieht man auch, dass bei diesen speziellen Datenbank-Tests auch nur die für den Tests gegen die Datenbenk verantwortlichen Repository-Beans instanziiert werden.
+
+Weiterführende Dokumentation:
+
+- [Auto-configured Data JPA Tests](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#features.testing.spring-boot-applications.autoconfigured-spring-data-jpa)
+- [Baeldung / Integration Testing With @DataJpaTest](https://www.baeldung.com/spring-boot-testing#integration-testing-with-datajpatest)
 
 ## REST-Services
 
@@ -199,6 +194,20 @@ Weiterführende Dokumentation:
 ### RestController
 
 **TODO**
+
+https://github.com/sboe0705/users/blob/main/src/test/java/de/sboe0705/users/rest/UserControllerTest.java
+
+Hervorragende Tutorials zum Einstieg:
+
+- (Building a RESTful Web Service)[https://spring.io/guides/gs/rest-service/]
+
+### REST-Clients
+
+**TODO**
+
+https://github.com/sboe0705/library/blob/main/src/test/java/de/sboe0705/library/client/rentals/impl/RentalsClientImplTest.java
+
+https://github.com/sboe0705/library/blob/main/src/test/java/de/sboe0705/library/client/books/impl/BooksClientImplTest.java
 
 ### Generierte Web-Schnittstellen
 
