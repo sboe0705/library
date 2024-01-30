@@ -90,7 +90,28 @@ Des Weiteren können für alle Beans entsprechende Geltungsbereiche (_Scopes_) d
 
 ### Automatisierte Tests
 
+So wie es verschiedene Typen von Spring Beans gibt, so gibt es auch verschiedene Testtypen. Sie setzen den Schwerpunkt auf unterscheidliche Teile des Codes bzw. können für einen Test unrelevante Komponenten ausblenden und somit Laufzeit und Ressourcen sparen.
+
+#### Simpler Unit-Test genau einer Klasse
+
+Die Logik eines Services wird in einem Unit-Test getestet, dabei werden benötigte Abhängigkeiten gemockt, d.h. durch Dummy-Service, deren Verhalten man im Test definieren kann, ersetzt. Zum Beispiel wird im [RentalServiceImplTest](https://github.com/sboe0705/rentals/blob/32e19bc0b3d30d8be6bb996c42790259e607011f/rentals-core/src/test/java/de/sboe0705/rentals/service/impl/RentalServiceImplTest.java) in der Methode _setUp_ die zu testende Klasse mit einfachen Java-Mitteln erstellt und ein Mock-Repository per Reflection injiziert. Später wird dieser Mock über _Mockito.when(...)_ konfiguriert bzw. dessen Aufrufe über _Mockito.verify(...)_ geprüft. Diese Test-Klasse fährt keinen Spring-ApplicationContext hoch und läuft dadurch extrem schnell durch.
+
+Weiterführende Dokumentation:
+
+- [Baeldung / Mockito Tutorial](https://www.baeldung.com/mockito-series)
+- [Mockito / JavaDoc](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html)
+
+#### Unit-Test mit Spring-ApplicationContext
+
 **TODO**
+
+#### Test mit Datenbank-Anbindung
+
+Im Test [BooksRepositoryTest](https://github.com/sboe0705/books/blob/main/src/test/java/de/sboe0705/books/data/BooksRepositoryTest.java) wird das _BooksRepository_ getestet. Da die _CrudRepository_ von Spring generiert werden, müssen die Standard-Methoden eigentlich nicht getestet werden. Allerdings können bei der Definition von eigenen Methoden Fehler passieren, die diese Tests dann wieder sinnvoll machen. Auch die Funktionsfähigkeit von Relationen kann sogar Tests des Standard-Methoden rechtfertigen (z.B. beim kaskadierenden Löschen).
+
+Tests mit Datenbank-Anbindungen sind mit _@DataJpaTest_ zu annotieren. Dadurch werden die Datenbank-Konfiguration aus den Application-Properties genommen. Über die Annotation _@Sql_ können SQL-Skripte mit Testdaten vor der Ausführung des Tests eingespielt werden, siehe z.B. [BooksRepositoryTest#33](https://github.com/sboe0705/books/blob/ac7f61dff70eaf679f935d5513dc15efb6158ad2/src/test/java/de/sboe0705/books/data/BooksRepositoryTest.java#L33).
+
+Beim optionalen Injizieren eines RestControllers (siehe [BooksRepositoryTest#22-30](https://github.com/sboe0705/books/blob/main/src/test/java/de/sboe0705/books/data/BooksRepositoryTest.java#L22-L30)) sieht man auch, dass bei diesen speziellen Datenbank-Tests auch nur die für den Tests gegen die Datenbenk verantwortlichen Repository-Beans instanziiert werden.
 
 ### Application Configuration
 
