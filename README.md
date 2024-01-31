@@ -105,13 +105,38 @@ Weiterführende Dokumentation:
 
 **TODO**
 
-### Application Configuration
+### Application Properties
 
-**TODO**
+Spring Boot Anwendungen können über Properties konfiguriert werden. Direkt im Source-Code können bereits Default-Konfigurationen mitgeliefert werden (als Properties- oder Yaml-Dateien, siehe z.B. [application.yaml](https://github.com/sboe0705/library/blob/main/src/main/resources/application.yaml)), die später bei Bedarf überschrieben werden können. Das Überschreiben von Properties kann auf unterschiedliche Arten erfolgen (z.B. über Umgebungsvariablen oder Programm-Argumente) und folgt bei der Bestimmung des finalen Wertes einer festen Reihenfolge, siehe weiterführenden Link zu _Externalized Configuration_.
 
-https://github.com/sboe0705/library/blob/main/src/test/java/de/sboe0705/library/configuration/LibraryConfigurationTest.java
+Weiterführende Dokumentation:
 
-https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-external-config.html
+- [Spring Boot / Properties & configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto.properties-and-configuration)
+- [Spring Boot / Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config)
+- [Baeldung / Properties with Spring and Spring Boot](https://www.baeldung.com/properties-with-spring)
+
+#### Vordefinierte Properties
+
+Für die Einstellungen von Spring Boot bzw. den mitgelieferten Zusatz-Frameworks gibt es eine Vielzahl an vordefinierten Properties (z.B. Datenbank-Einstellungen, Security, DevTools, etc.).
+
+Weiterführende Dokumentation:
+
+- [Spring Boot / Common Application Properties](https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html#appendix.application-properties.web)
+
+#### Mapping auf Configuration Klassen
+
+Der Zugriff auf die Application Properties erfolgt bequem über entsprechende Java-Klassen, auf die die Application Properties gemappt werden. Dabei wird über die Annotation _@ConfigurationProperties_ ein Wurzel-Knotenpunkt definiert unter dem alle Properties auf die entsprechenden Felder der annotiierten Java-Klasse/Bean zur Laufzeit gemappt werden, siehe [LibraryConfiguration](https://github.com/sboe0705/library/blob/main/src/main/java/de/sboe0705/library/configuration/LibraryConfiguration.java). Dabei werden verschachtelte Klassen-Strukturen entsprechend berücksichtigt, siehe [RestClientConfiguration](https://github.com/sboe0705/library/blob/main/src/main/java/de/sboe0705/library/configuration/RestClientConfiguration.java) und vergleiche mit [application.yaml](https://github.com/sboe0705/library/blob/main/src/main/resources/application.yaml). Soweit nicht anders definiert, mapped Spring die Properties-Namen auf die gleichnamigen Klassen-Felder und ignoriert dabei Bindestriche und Groß-/Kleinschreibung.
+
+Über die Annotation _@Validated_ und entsprechende Constraint-Annotationen aus dem Package _jakarta.validation.constraints_ können die Application Properties beim Start der Spring Boot Anwendung bereits validiert werden. Bei einem Fehler bricht der Startvorgang direkt ab. Ein Beispiel ist hier implementiert: [RestClientConfiguration](https://github.com/sboe0705/library/blob/main/src/main/java/de/sboe0705/library/configuration/RestClientConfiguration.java).
+
+Es ist weiterhin möglich das Mapping der Application Properties auf Java-Klassen und die Validierung zu testen. Dabei wird im JUnit-Test über die Annotation _@EnableConfigurationProperties_ die zu testende Configuration-Klasse definiert und mit _@TestPropertySource_ die Werte geladen. Anschließend kann die per _@Autowired_ injizierte Klasse getestet werden.
+
+**TODO: Beispiel nach [LibraryConfigurationTest](https://github.com/sboe0705/library/blob/main/src/test/java/de/sboe0705/library/configuration/LibraryConfigurationTest.java)***
+
+Weiterführende Dokumentation:
+
+- [Spring Boot / Type-safe Configuration Properties](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.typesafe-configuration-properties)
+- [Baeldung / Testing Spring Boot @ConfigurationProperties]()
 
 ## Persistierung
 
