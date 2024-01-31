@@ -138,6 +138,15 @@ Weiterführende Dokumentation:
 - [Spring Boot / Type-safe Configuration Properties](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.typesafe-configuration-properties)
 - [Baeldung / Testing Spring Boot @ConfigurationProperties]()
 
+#### Configuration Profiles
+
+Standardmäßig wird für die gültigen Application Properties die Datei _application.properties_ (oder der Yaml-Pendant) geladen. Es können aber auch Properties für spezielle Zwecke angelegt werden, die dann über ein Profil aktiviert werden. Dazu wird eine mit dem Profilnamen gesuffixte Properties-Datei angelegt, z.B. _application-production.properties_. Das Profile kann dann z.B. über die Programm-Parameter _-Dspring.profiles.active_ aktiviert werden.
+
+Weiterführende Dokumentation:
+
+- [Spring Boot / Profile Specific Files](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.files.profile-specific)
+- [Baeldung / Spring Profiles](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.files.profile-specific)
+
 ## Persistierung
 
 ### Datenbank-Anbindung
