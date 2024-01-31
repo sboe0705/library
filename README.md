@@ -151,21 +151,20 @@ Weiterführende Dokumentation:
 
 ### Datenbank-Anbindung
 
-**TODO**
+Spring Boot bietet out-of-the-box eine Standard-Konfiguration für Datenbank-Anbindung. Sobald eine Datenbank-Dependency im Projekt enthalten ist (siehe z.B. [pom.xml#38-47](https://github.com/sboe0705/users/blob/01d8d0e7ce28ed4c1f5d025523b692a5c28334ba/pom.xml#L38-L47)), wird diese Datenbank in der Application konfiguriert. Als Default wird die **H2** Datenbank konfiguriert, die auch als In-Memory-Datenbank (z.B. für ulta-schnelle Datenbank-Tests) genutzt werden kann.
 
-application-generate-ddl.yaml
+Die Konfiguration einer anderen Datenbank ist im [Spring Guide / Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/) hervorragend erklärt.
 
-https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.files.profile-specific
+Weiterführende Dokumentation:
 
-H2 Console
+- [Spring Boot / Data Access](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto.data-access.configure-custom-datasource)
 
-https://docs.spring.io/spring-boot/docs/3.1.x/reference/html/data.html#data.sql.h2-web-console
+### H2-Console
 
-H2-Console: https://docs.spring.io/spring-boot/docs/current/reference/html/data.html#data.sql.h2-web-console
+Da der Zugriff auf eine In-Memory-Datenbank mit externen Tools nicht trivial ist, bietet H2 eine Web-Oberfläche, über die man während der laufenden Spring Boot Anwendung die persistierten Daten einsehen kann. Man aktiviert dieses Feature über die Property _spring.h2.console.enabled=true_ und dann erhält Zugriff über die URL _http://localhost:8080/h2-console_.
 
-SCRIPT NODATA
-
-https://stackoverflow.com/questions/5469881/any-easy-way-to-generate-a-build-script-from-an-h2-database
+- [Spring Boot / Using H2’s Web Console](https://docs.spring.io/spring-boot/docs/current/reference/html/data.html#data.sql.h2-web-console)
+- [Baeldung / Spring Boot With H2 Database](https://www.baeldung.com/spring-boot-h2-database)
 
 ### Objekt-Relationales Mapping (ORM)
 
@@ -183,6 +182,7 @@ Ein einfaches Beispiel ist in der Klasse **_User_** umgesetzt, siehe [User.java]
 Weiterführende Informationen findet ihr hier:
 
 - [Spring Data JPA / Getting Started](https://docs.spring.io/spring-data/jpa/reference/jpa/getting-started.html)
+- [Spring Boot / JPA and Spring Data JPA](https://docs.spring.io/spring-boot/docs/current/reference/html/data.html#data.sql.jpa-and-spring-data)
 - [Baeldung / Defining JPA Entities](https://www.baeldung.com/jpa-entities)
 
 ### CrudRepositories
@@ -203,6 +203,11 @@ Weiterführende Dokumentation:
 ### Datenbank-Migration mit FlyWay
 
 **TODO**
+
+application-generate-ddl.yaml
+SCRIPT NODATA
+https://stackoverflow.com/questions/5469881/any-easy-way-to-generate-a-build-script-from-an-h2-database
+
 
 Weiterführende Dokumentation:
 
