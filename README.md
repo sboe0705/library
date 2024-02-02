@@ -207,7 +207,7 @@ Ist eine Version der Anwendung bereits rproduktiv und hat ihr Datenbank-Modell b
 
 Hier wird (aufgrund der perönlichen Erfahrung) mit FlyWay gearbeitet, aber Liquibase ist auf jeden Fall einen Versuch wert! 
 
-FlyWay wird aktiviert, sobald die entsprechende Dependency enthalten ist, siehe [pom.xml#23-26](https://github.com/sboe0705/rentals/blob/32e19bc0b3d30d8be6bb996c42790259e607011f/rentals-core/pom.xml#L23-L26). Dann durchsucht FlyWay beim Starten der Spring Boot Anwendung alle SQL-Skripte im Klassenpfad-Verzeichnis _db/migration_, die das Folgende Namensschema tragen: _V<Version>__<Beschreibung>.sql_. Einige Beispiele sind hier zu finden: [.../rentals-core/src/main/resources](https://github.com/sboe0705/rentals/tree/32e19bc0b3d30d8be6bb996c42790259e607011f/rentals-core/src/main/resources). Anschließend validiert FlyWay anhand der Versionsnummern und Hashes über die Skript-Inhalte das aktuelle Datenbank-Schema: Passt das Schema zu den bereits eingespielten SQL-Skripten oder wurde manuell etwas verändert? Nach erfolgreicher Prüfung werden die restlichen/neuen SQL-Skripte eingespielt und deren Versionen und Hashes in die entsprechende FlyWay-Tabelle eingetragen.
+FlyWay wird aktiviert, sobald die entsprechende Dependency enthalten ist, siehe [pom.xml#23-26](https://github.com/sboe0705/rentals/blob/32e19bc0b3d30d8be6bb996c42790259e607011f/rentals-core/pom.xml#L23-L26). Dann durchsucht FlyWay beim Starten der Spring Boot Anwendung alle SQL-Skripte im Klassenpfad-Verzeichnis _db/migration_, die das Folgende Namensschema tragen: _V<Version>__<Beschreibung>.sql_. Einige Beispiele sind hier zu finden: [.../db/migration](https://github.com/sboe0705/rentals/tree/32e19bc0b3d30d8be6bb996c42790259e607011f/rentals-core/src/main/resources/db/migration). Anschließend validiert FlyWay anhand der Versionsnummern und Hashes über die Skript-Inhalte das aktuelle Datenbank-Schema: Passt das Schema zu den bereits eingespielten SQL-Skripten oder wurde manuell etwas verändert? Nach erfolgreicher Prüfung werden die restlichen/neuen SQL-Skripte eingespielt und deren Versionen und Hashes in die entsprechende FlyWay-Tabelle eingetragen.
 
 **TODO**
 
@@ -221,8 +221,8 @@ Weiterführende Dokumentation:
 - [Spring Boot / Execute Flyway Database Migrations on Startup](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto.data-initialization.migration-tool.flyway)
 - [Spring Boot / Execute Liquibase Database Migrations on Startup](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto.data-initialization.migration-tool.liquibase)
 - [Baeldung / Liquibase vs Flyway](https://www.baeldung.com/liquibase-vs-flyway)
-- [Database Migrations with Flyway](https://www.baeldung.com/database-migrations-with-flyway)
-- [Use Liquibase to Safely Evolve Your Database Schema](https://www.baeldung.com/liquibase-refactor-schema-of-java-app)
+- [Baeldung / Database Migrations with Flyway](https://www.baeldung.com/database-migrations-with-flyway)
+- [Baeldung / Use Liquibase to Safely Evolve Your Database Schema](https://www.baeldung.com/liquibase-refactor-schema-of-java-app)
 
 ### Automatisierte Tests mit Datenbank-Anbindung
 
