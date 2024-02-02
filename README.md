@@ -111,7 +111,7 @@ Spring Boot Anwendungen können über Properties konfiguriert werden. Direkt im 
 
 Weiterführende Dokumentation:
 
-- [Spring Boot / Properties & configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto.properties-and-configuration)
+- [Spring Boot / Properties & Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto.properties-and-configuration)
 - [Spring Boot / Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config)
 - [Baeldung / Properties with Spring and Spring Boot](https://www.baeldung.com/properties-with-spring)
 
@@ -172,12 +172,13 @@ Da der Zugriff auf eine In-Memory-Datenbank mit externen Tools nicht trivial ist
 
 Ein einfaches Beispiel ist in der Klasse **_User_** umgesetzt, siehe [User.java](https://github.com/sboe0705/users/blob/f1f40573166cdd0c4a60a7c7daacec7a46ec61d8/src/main/java/de/sboe0705/users/model/User.java). Über entsprechende Annotationen werden die Java-Klassen mit den für das ORM notwendigen Informationen angereichert. Das Framework generiert standardmäßig für jede Entitäten-Klasse eine Tabelle mit entsprechenden Spalten für jedes enthaltene Feld. Im Folgenden sind die wichtigsten aufgeführt:
 
-| Annotation | Beschreibung                                                                                                                        |
-| ---        | ---                                                                                                                                 |
-| @Entity    | Kennzeichnet eine Java-Klasse als Datenbank-Entität                                                                                 |
-| @Table     | Enthält zusätzliche Angaben zur Tabelle für diese Entität z.B. kann man den Tabellennamen explizit definieren (``name = "_user"``). |
-| @Id        | Definiert ein Feld der Java-Klasse als Primärschlüssel.                                                                                          |
-| @Column    | Enthält zusätzliche Angaben zur Spalte für dieses Feld z.B. kann ein Feld als Pflichfeld (``nullable = false``) definiert werden.   |
+| Annotation      | Beschreibung                                                                                                                        |
+| ---             | ---                                                                                                                                 |
+| @Entity         | Kennzeichnet eine Java-Klasse als Datenbank-Entität                                                                                 |
+| @Table          | Enthält zusätzliche Angaben zur Tabelle für diese Entität z.B. kann man den Tabellennamen explizit definieren (``name = "_user"``). |
+| @Id             | Definiert ein Feld der Java-Klasse als Primärschlüssel.                                                                             |
+| @GeneratedValue | Lässt die Werte des Primärschlüssels automatisch generieren.                                                                        |
+| @Column         | Enthält zusätzliche Angaben zur Spalte für dieses Feld z.B. kann ein Feld als Pflichfeld (``nullable = false``) definiert werden.   |
 
 Weiterführende Informationen findet ihr hier:
 
@@ -202,6 +203,12 @@ Weiterführende Dokumentation:
 
 ### Datenbank-Migration mit FlyWay
 
+Ist eine Version der Anwendung bereits rproduktiv und hat ihr Datenbank-Modell bereits angelegt und mit Daten gefüllt, ist es nicht mehr so einfach neue Versionen der Anwendung mit Datenbank-Erweiterungen einzuspielen. Spring Boot enthält jedoch zwei Bibliotheken für eine komfortable Datenkbank-Migration: _FlyWay_ und _Liquibase_. Während FlyWay die Schema-Änderungen in versionierten SQL-Skripten beim Start nacheinander einspielt, unterstützt Liquibase hier mehrere Formate und bietet sogar Möglichkeiten, Datenbank-Migrationsskripte (sowohl initiale als auch Deltas) automatisch zu generieren.
+
+Hier wird (aufgrund der perönlichen Erfahrung) mit FlyWay gearbeitet, aber Liquibase ist auf jeden Fall einen Versuch wert! 
+
+
+
 **TODO**
 
 application-generate-ddl.yaml
@@ -212,6 +219,10 @@ https://stackoverflow.com/questions/5469881/any-easy-way-to-generate-a-build-scr
 Weiterführende Dokumentation:
 
 - [Spring Boot / Execute Flyway Database Migrations on Startup](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto.data-initialization.migration-tool.flyway)
+- [Spring Boot / Execute Liquibase Database Migrations on Startup](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto.data-initialization.migration-tool.liquibase)
+- [Baeldung / Liquibase vs Flyway](https://www.baeldung.com/liquibase-vs-flyway)
+- [Database Migrations with Flyway](https://www.baeldung.com/database-migrations-with-flyway)
+- [Use Liquibase to Safely Evolve Your Database Schema](https://www.baeldung.com/liquibase-refactor-schema-of-java-app)
 
 ### Automatisierte Tests mit Datenbank-Anbindung
 
