@@ -207,7 +207,7 @@ Ist eine Version der Anwendung bereits rproduktiv und hat ihr Datenbank-Modell b
 
 Hier wird (aufgrund der perönlichen Erfahrung) mit FlyWay gearbeitet, aber Liquibase ist auf jeden Fall einen Versuch wert! 
 
-
+FlyWay wird aktiviert, sobald die entsprechende Dependency enthalten ist, siehe [pom.xml#23-26](https://github.com/sboe0705/rentals/blob/32e19bc0b3d30d8be6bb996c42790259e607011f/rentals-core/pom.xml#L23-L26). Dann durchsucht FlyWay beim Starten der Spring Boot Anwendung alle SQL-Skripte im Klassenpfad-Verzeichnis _db/migration_, die das Folgende Namensschema tragen: _V<Version>__<Beschreibung>.sql_. Einige Beispiele sind hier zu finden: [.../rentals-core/src/main/resources](https://github.com/sboe0705/rentals/tree/32e19bc0b3d30d8be6bb996c42790259e607011f/rentals-core/src/main/resources). Anschließend validiert FlyWay anhand der Versionsnummern und Hashes über die Skript-Inhalte das aktuelle Datenbank-Schema: Passt das Schema zu den bereits eingespielten SQL-Skripten oder wurde manuell etwas verändert? Nach erfolgreicher Prüfung werden die restlichen/neuen SQL-Skripte eingespielt und deren Versionen und Hashes in die entsprechende FlyWay-Tabelle eingetragen.
 
 **TODO**
 
@@ -290,6 +290,7 @@ https://openapi-generator.tech/docs/generators/java/
 
 **TODO**
 
+https://github.com/sboe0705/rentals/blob/32e19bc0b3d30d8be6bb996c42790259e607011f/rentals-rest/src/main/resources/application.yaml#L1-L3
 https://docs.spring.io/spring-boot/docs/current/reference/html/web.html#web.servlet.spring-mvc.error-handling
 
 ### Automatisierte Tests des Web-Schnittstellen
